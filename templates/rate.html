@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block t %}Ratings{% endblock %}
+{% block b %}
+
+<div class="section-blank">
+    <h1>Rate <span class="stallion">Stallion</span>.</h1>
+</div>
+
+<form method="POST" class="questionnaire">
+    <input type="hidden" name="author" id="author" class="form">
+    <input type="text" name="comment" placeholder="How useful was our product to you?" class="form" required>
+
+    <br><br>
+
+    <select name="stars" class="form">
+        <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+        <option value="4">&#9733;&#9733;&#9733;&#9733;</option>
+        <option value="3">&#9733;&#9733;&#9733;</option>
+        <option value="2">&#9733;&#9733;</option>
+        <option value="1">&#9733;</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit" class="btn">Comment</button>
+</form>
+
+<hr>
+
+{% if ratings|length == 0 %}
+There don't seem to be any current reviews.
+{% else %}
+
+<div class="feed">
+    {% for review in ratings %}
+
+    <div class="tile tile-static">
+        <h3>
+            <span class="stallion">{{ review.author }} &middot;</span>
+            <span class="stars">{% for x in range(review.stars) %}&#9733;{% endfor %}</span>
+        </h3>
+
+        <h5>{{ review.comment }}</h5>
+    </div>
+
+    {% endfor %}
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+{% block s %}
+<script>
+    document.getElementById("author").value = `${localStorage.getItem("username")} - ${localStorage.getItem("status")}`
+</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block t %}{{ post.title }}{% endblock %}
+{% block b %}
+
+<div class="section-blank">
+    <h1><span class="stallion">{{ post.title }}</span> by {{ post.author }}</h1>
+</div>
+<div class="section-bg">
+    <h3>{{ post.topic }}</h3>
+</div>
+
+<div class="cnt">
+    {{ post.likes }} likes
+    <div id="like">
+        <a href="/like-{{ post.id }}" class="link">&uarr; Like</a>
+    </div>
+
+    <hr>
+
+    <div id="cnt">
+        {{ post.content }}
+    </div>
+</div>
+{% endblock %}
+
+{% block s %}
+<script>
+    {{ js }}
+    setValue("cnt", (document.getElementById("cnt").innerText))
+    checkLiked({{ post.id }})
+</script>
+{% endblock %}

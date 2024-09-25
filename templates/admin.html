@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin &middot; Stallion</title>
+    <link rel="stylesheet" href="https://nispar2009.github.io/spectrum-stylr-beta/light.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <div class="nav-desktop">
+            <a href="#" class="nav-desktop-link nav-desktop-item">Admin &#9812;</a>
+            <a href="http://127.0.0.1:5000" class="nav-desktop-link nav-desktop-item">Stallion &rarr;</a>
+        </div>
+    </header>
+
+    <div class="body">
+
+        <div class="section-blank">
+            <h1>Welcome to the <span class="stallion">Stallion</span> admin page.</h1>
+        </div>
+        <div class="section-bg">
+            <h3>You can check the accuracy of the nutrition records below and resolve concerns.</h3>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>Food item</th>
+                <th>Calories</th>
+                <th>Protein</th>
+                <th>Carbs</th>
+                <th>Fats</th>
+                <th>Sodium</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for item in reports %}
+            <tr>
+                <td>{{ item.item }}</td>
+                <td>{{ item.cal }} kCal</td>
+                <td>{{ item.protein }}g</td>
+                <td>{{ item.carbs }}g</td>
+                <td>{{ item.fats }}g</td>
+                <td>{{ item.na }}mg</td>
+                <td>
+                    <button class="btn btn-warning" onclick="redirect('/ignore-{{ item.id }}')">Ignore</button>
+                    <button class="btn btn-danger" onclick="redirect('/resolve-{{ item.id }}')">Delete and
+                        resolve</button>
+                    <button class="btn btn-info" onclick="redirect('mailto:{{ item.email }}')">Follow up</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <hr>
+
+        <div class="section-bg">
+            <h3>You can also view ratings below.</h3>
+        </div>
+
+        <div class="feed">
+            {% for review in ratings %}
+
+            <div class="tile tile-static">
+                <h3>
+                    <span class="stallion">{{ review.author }} &middot;</span>
+                    <span class="stars">{% for x in range(review.stars) %}&#9733;{% endfor %}</span>
+                </h3>
+
+                <h5>{{ review.comment }}</h5>
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <script src="https://nispar2009.github.io/spectrum_stylr/Spectrum.js"></script>
+</body>
+
+</html>

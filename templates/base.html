@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block t %}{% endblock %} &middot; Stallion</title>
+    <link rel="stylesheet" href="https://nispar2009.github.io/spectrum-stylr-beta/light.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+
+        <div class="nav-desktop">
+            <a href="/" class="nav-desktop-link nav-desktop-item">Home</a>
+            <a href="/cal" class="nav-desktop-link nav-desktop-item">Nutrition</a>
+            <a href="/rate" class="nav-desktop-link nav-desktop-item">Rate us</a>
+            <a href="/write" class="nav-desktop-link nav-desktop-item">Write</a>
+            <a href="#" class="nav-desktop-link nav-desktop-item" onclick="signout()">Signout</a>
+        </div>
+
+        <div class="nav-mobile">
+            <button class="btn btn-info" onclick="ShowContent()">&hellip;</button>
+            <div id="nav-mobile-content" class="nav-mobile-content">
+                <a href="/" class="nav-mobile-link">Dashboard</a>
+                <a href="/cal" class="nav-mobile-link">Calories</a>
+                <a href="/rate" class="nav-mobile-link">Rate us</a>
+                <a href="/write" class="nav-mobile-link">Write</a>
+            </div>
+        </div>
+
+    </header>
+
+    <div class="body">{% block b %}{% endblock %}</div>
+
+    <footer class="footer">
+        A quality product of <a href="https://nispar2009.github.io/" class="link">Nisanth Parupalli (nispar2009)</a>
+    </footer>
+
+    <script src="https://nispar2009.github.io/spectrum_stylr/Spectrum.js"></script>
+    <script src="/static/script.js"></script>
+    <script>
+        auth()
+    </script>
+    {% block s %}{% endblock %}
+</body>
+
+</html>

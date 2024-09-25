@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login &middot; Stallion</title>
+    <link rel="stylesheet" href="https://nispar2009.github.io/spectrum-stylr-beta/light.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="shortcut icon" href="/static/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="section-blank">
+        <h1>Before we continue, could you login to <span class="stallion">Stallion</span>?</h1>
+    </div>
+
+    <div class="questionnaire">
+
+        <input type="text" id="username" placeholder="What is your name?" class="form" required>
+
+        <br><br>
+
+        <select id="status" title="Are you a trainer or a practitioner?" class="form" required>
+            <option>Practitioner</option>
+            <option>Trainer</option>
+        </select>
+
+        <br><br>
+
+        <select id="goal" title="What is your goal?" class="form" required>
+            <option>Muscle building</option>
+            <option>Weight loss</option>
+            <option>Overall health</option>
+        </select>
+
+        <br><br>
+
+        <button class="btn" onclick="login()">Login</button>
+
+    </div>
+
+    <script src="https://nispar2009.github.io/spectrum_stylr/Spectrum.js"></script>
+    <script src="/static/script.js"></script>
+</body>

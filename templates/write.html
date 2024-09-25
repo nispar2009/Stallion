@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block t %}Write{% endblock %}
+{% block b %}
+
+<div class="section-blank">
+    <h1>Write for the <span class="stallion">Stallion</span> blog.</h1>
+</div>
+
+<form method="POST" class="questionnaire">
+
+    <input type="hidden" name="author" id="author" class="form">
+    <input type="text" name="title" placeholder="Title goes here" class="form" required>
+
+    <br><br>
+
+    <select name="topic" class="form">
+        <option>Muscle building</option>
+        <option>Weight loss</option>
+        <option>Overall health</option>
+        <option>Recipe</option>
+    </select>
+
+    <br><br>
+
+    <textarea name="content"
+        placeholder="Content goes here (please don't use any HTML). You can also use '[[' and ']]' to emphasize text and give it an underline effect."
+        class="form" required></textarea>
+
+    <br><br>
+
+    <button type="submit" class="btn">Upload</button>
+</form>
+
+{% endblock %}
+
+{% block s %}
+<script>
+    document.getElementById("author").value = `${localStorage.getItem("username")} - ${localStorage.getItem("status")}`
+</script>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block t %}Home{% endblock %}
+{% block b %}
+
+<div class="section-blank">
+    <h1>Welcome, <span id="hi"></span>, to <span class="stallion">Stallion</span>!</h1>
+</div>
+<div class="section-bg">
+    <h3>{{ quote }}</h3>
+</div>
+
+<hr>
+
+<h2 class="heading">Stallion Feed</h2>
+<p class="heading">Goals in blue, recipes in gold</p>
+
+<div class="feed col">
+
+    <div class="hidden" id="muscle">
+
+        {% if feed[0]|length == 0 %}
+        There don't seem to be any posts in your muscle building feed yet.
+        Do you want to <a href="/write" class="link">create</a> one? &rarr;
+        {% else %}
+
+        {% for item in feed[0] %}
+        <div class="tile" onclick="redirect('/post-{{ item.id }}')">
+            <h2 class="stallion">{{ item.title }}</h2>
+            <h5>By {{ item.author }}</h5>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+
+    </div>
+
+    <div class="hidden" id="weight">
+
+        {% if feed[1]|length == 0 %}
+        There don't seem to be any posts in your weight loss feed yet.
+        Do you want to <a href="/write" class="link">create</a> one? &rarr;
+        {% else %}
+
+        {% for item in feed[1] %}
+        <div class="tile" onclick="redirect('/post-{{ item.id }}')">
+            <h2 class="stallion">{{ item.title }}</h2>
+            <h5>By {{ item.author }}</h5>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+
+    </div>
+    <div class="hidden" id="overall">
+
+        {% if feed[2]|length == 0 %}
+        There don't seem to be any posts in your overall health feed yet.
+        Do you want to <a href="/write" class="link">create</a> one? &rarr;
+        {% else %}
+
+        {% for item in feed[2] %}
+        <div class="tile" onclick="redirect('/post-{{ item.id }}')">
+            <h2 class="stallion">{{ item.title }}</h2>
+            <h5>By {{ item.author }}</h5>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+
+    </div>
+    <div id="recipe">
+
+        {% if feed[3]|length == 0 %}
+        There don't seem to be any posts in your recipe feed yet.
+        Do you want to <a href="/write" class="link">create</a> one? &rarr;
+        {% else %}
+
+        {% for item in feed[3] %}
+        <div class="tile" onclick="redirect('/post-{{ item.id }}')">
+            <h2 class="stallion">{{ item.title }}</h2>
+            <h5>By {{ item.author }}</h5>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block s %}
+<script>
+    setValue("hi", (localStorage.getItem("username")))
+    optimizeFeed()
+</script>
+{% endblock %}

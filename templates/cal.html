@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block t %}Nutrition{% endblock %}
+{% block b %}
+
+<div id="msg" class="card"></div>
+
+<div id="main">
+
+    <div class="section-blank">
+        <h1>Add to the <span class="stallion">Stallion</span> food database.</h1>
+    </div>
+
+    <form method="POST" class="questionnaire">
+
+        <input type="text" name="item"
+            placeholder="Which food are you talking about? (Please make sure it's not already on the list first.)"
+            class="form" required>
+        <br><br>
+        <input type="number" min="0" name="energy" placeholder="How many kilocalories does it have?" class="form"
+            required>
+        <br><br>
+        <input type="number" min="0" name="protein" step="0.01" placeholder="How many grams of protein does it have?"
+            class="form" required>
+        <br><br>
+        <input type="number" min="0" name="carbs" step="0.01"
+            placeholder="How many grams of carbohydrates does it have?" class="form" required>
+        <br><br>
+        <input type="number" min="0" name="fats" step="0.01" placeholder="How many grams of fats does it have?"
+            class="form" required>
+        <br><br>
+        <input type="number" min="0" name="na" step="0.01" placeholder="How many milligrams of sodium does it have?"
+            class="form" required>
+        <br><br>
+        <button type="submit" class="btn">Add</button>
+    </form>
+
+    <hr>
+
+    <table class="table hidden" id="overall">
+        <tr>
+            <th>Food item</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Carbs</th>
+            <th>Fats</th>
+            <th>Sodium</th>
+            <th>Action</th>
+        </tr>
+        {% for item in overall_food %}
+        <tr>
+            <td>{{ item.item }}</td>
+            <td>{{ item.cal }} kCal</td>
+            <td>{{ item.protein }}g</td>
+            <td>{{ item.carbs }}g</td>
+            <td>{{ item.fats }}g</td>
+            <td>{{ item.na }}mg</td>
+            <td>
+                <button class="btn btn-success" onclick="eat({{ item.cal }}, {{ item.protein }})">Eat</button>
+                <button class="btn btn-warning" onclick="reportPopup('{{ item.item }}')">&#9872; Inaccuracy</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table class="table hidden" id="muscle">
+        <tr>
+            <th>Food item</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Carbs</th>
+            <th>Fats</th>
+            <th>Sodium</th>
+            <th>Actions</th>
+        </tr>
+        {% for item in muscle_food %}
+        <tr>
+            <td>{{ item.item }}</td>
+            <td>{{ item.cal }} kCal</td>
+            <td>{{ item.protein }}g</td>
+            <td>{{ item.carbs }}</td>
+            <td>{{ item.fats }}</td>
+            <td>{{ item.na }}</td>
+            <td>
+                <button class="btn btn-success" onclick="eat({{ item.cal }}, {{ item.protein }})">Eat</button>
+                <button class="btn btn-warning" onclick="reportPopup('{{ item.item }}')">&#9872; Inaccuracy</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table class="table hidden" id="weight">
+        <tr>
+            <th>Food item</th>
+            <th>Calories</th>
+            <th>Protein</th>
+            <th>Carbs</th>
+            <th>Fats</th>
+            <th>Sodium</th>
+            <th>Action</th>
+        </tr>
+        {% for item in weight_food %}
+        <tr>
+            <td>{{ item.item }}</td>
+            <td>{{ item.cal }} kCal</td>
+            <td>{{ item.protein }}g</td>
+            <td>{{ item.carbs }}</td>
+            <td>{{ item.fats }}</td>
+            <td>{{ item.na }}</td>
+            <td>
+                <button class="btn btn-success" onclick="eat({{ item.cal }}, {{ item.protein }})">Eat</button>
+                <button class="btn btn-warning" onclick="reportPopup('{{ item.item }}')">&#9872; Inaccuracy</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <div class="section-blank">
+
+        <span id="form"><input type="number" min="0" id="inp" class="form"></span><button id="calc"
+            onclick="calc()" class="btn btn-info">Progress towards
+            goal</button>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block s %}
+<script>
+    optimizeFood()
+</script>
+{% endblock %}

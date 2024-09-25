@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&display=swap');
+
+.nav-desktop {
+    position: fixed;
+    text-align: center;
+    z-index: 50;
+}
+
+footer.footer {
+    color: black;
+    box-sizing: border-box;
+    /* border-top: 10px solid white; */
+    height: 100px;
+    line-height: 100px;
+    padding: 0px;
+}
+
+.body {
+    margin-top: 50px;
+}
+
+a.link:hover {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+}
+
+.section-bg {
+    text-align: center;
+    background-color: dodgerblue;
+    color: white;
+}
+
+.section-blank {
+    text-align: center;
+    background-image: linear-gradient(to right, lightgrey, whitesmoke);
+}
+
+.stallion {
+    font-family: "Cabin Sketch", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: brown;
+}
+
+.heading {
+    text-align: center;
+    color: dodgerblue !important;
+}
+
+.feed {
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.tile {
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid dodgerblue;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+.tile:hover {
+    background-color: dodgerblue;
+}
+
+.tile:hover .stallion,
+.tile:hover h5 {
+    color: whitesmoke;
+}
+
+#recipe .tile {
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid goldenrod;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+#recipe .tile:hover {
+    background-color: goldenrod;
+}
+
+#recipe .tile:hover .stallion,
+#recipe .tile:hover h5 {
+    color: white;
+}
+
+.tile.tile-static {
+    cursor: auto;
+}
+
+.tile.tile-static:hover {
+    background-color: white !important;
+}
+
+.tile.tile.tile-static:hover .stallion {
+    color: brown !important;
+}
+
+.tile.tile.tile-static:hover h5 {
+    color: black !important;
+}
+
+.cnt {
+    padding: 25px;
+    font-size: large;
+}
+
+.questionnaire {
+    padding: 25px;
+    font-size: large;
+    text-align: center;
+    background-color: dodgerblue;
+}
+
+.questionnaire * {
+    background-color: dodgerblue;
+    border-radius: 10px !important;
+    width: 100% !important;
+    padding: 15px !important;
+    box-sizing: border-box;
+    border: 2px solid whitesmoke;
+    font-size: large !important;
+    color: whitesmoke;
+}
+
+.questionnaire button.btn:hover {
+    background-color: whitesmoke;
+    color: dodgerblue;
+}
+
+.questionnaire textarea {
+    height: 200px;
+    text-align: justify;
+}
+
+::placeholder {
+    color: whitesmoke
+}
+
+em {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+table.table {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+table.table th {
+    background-color: lightgrey;
+}
+
+table.table tr:nth-child(even) {
+    background-color: white !important;
+    color: black !important;
+}
+
+table.table tr:nth-child(odd) {
+    background-color: whitesmoke !important;
+}
+
+#msg {
+    opacity: 0;
+    width: 70%;
+    height: 70%;
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    background-color: whitesmoke !important;
+    padding: 25px;
+    display: none;
+    box-sizing: border-box;
+    z-index: 100;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+select.form {
+    cursor: pointer;
+}
+
+.stars {
+    color: goldenrod;
+}
+
+.body {
+    min-height: calc(100vh - 150px);
+}
+
+* {
+    font-family: "Urbanist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    transition-duration: 0.2s;
+}
